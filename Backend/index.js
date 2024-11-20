@@ -1,9 +1,9 @@
 
 import app from "./app.js";
-const port = process.env.PORT || 300
 import 'dotenv/config'
 import { connect } from "./db/db.js";
 import mongoose from "mongoose";
+const port = process.env.PORT || 300
 
 
 try

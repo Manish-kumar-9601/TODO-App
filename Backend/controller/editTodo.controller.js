@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Todo } from "../model/todo.model.js";
 import { connect } from "../db/db.js";
 
-export const editTodo = async (req, res) =>
+export const EditTodo = async (req, res) =>
 {
     const isConnected = mongoose.connection.readyState;
 

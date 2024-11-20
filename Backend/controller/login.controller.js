@@ -3,7 +3,7 @@ import { User } from "../model/user.model.js";
 import jwt from 'jsonwebtoken'
 import mongoose from "mongoose";
 
-export const login = async (req, res) =>
+export const Login = async (req, res) =>
 {
     const isConnected = mongoose.connection.readyState;
 

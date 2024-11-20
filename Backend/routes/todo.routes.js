@@ -1,9 +1,10 @@
 import { Router } from "express"
-import { registerTodo } from "../controller/registerTodo.controller.js"
-import { getTodo } from "../controller/getTodos.controller.js"
 import { auth } from "../middleware/auth.js"
-import { deleteTodo } from "../controller/deleteTodo.controller.js"
-import { editTodo } from "../controller/editTodo.controller.js"
+import {AddTodo } from '../controller/addTodo.controller.js'
+import {GetTodo} from '../controller/getTodos.controller.js'
+import { DeleteTodo } from "../controller/deleteTodo.controller.js"
+import {EditTodo}from '../controller/editTodo.controller.js'
 const router = Router()
-router.post("/todo",auth, registerTodo).get("/todo",auth, getTodo).delete('/todo',auth, deleteTodo).put('/todo',auth,editTodo)
+router.post("/todo", AddTodo).delete('/todo', DeleteTodo).put('/todo',EditTodo)
+router.get("/todo/:userId" , GetTodo)
 export default router

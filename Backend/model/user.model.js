@@ -4,16 +4,16 @@ export const UserSchema = new mongoose.Schema({
 
     userName: {
         type: String,
-        required: true,
+        required: true, unique: true
 
     },
     email: {
         type: String,
-        required: true
+        required: true, unique: true
     },
     age: {
         type: Number,
-        required: true,
+        required: true, unique: true
     },
     profession: {
         type: String,
@@ -27,8 +27,8 @@ export const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Password is required']
-
+        required: [true, 'Password is required'],
+        unique: true
     },
     todo: {
         type: mongoose.ObjectId,

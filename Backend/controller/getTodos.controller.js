@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 import { Todo } from "../model/todo.model.js"
+import { connect } from "../db/db.js";
 
 
 
-const getTodo = async (req, res) =>
+export const GetTodo = async (req, res) =>
 {
     const isConnected = mongoose.connection.readyState;
 
@@ -14,9 +15,14 @@ const getTodo = async (req, res) =>
         console.log("DB is not connected connecting again");
         return;
     }
-    // const {id}=req.body;
-    const todo = await Todo.find({ author: "673359729b72b22631a3ce5e" });
-    res.send(todo)
-    mongoose.connection.close()
+    try {
+        
+        const {userId}=req.params;
+        console.log(userId);
+        const todo = await Todo.find({ author:userId }).sort({createdAt:-1});
+        res.send(todo)
+        
+    } catch (error) {
+        res.json({message:`failed get todos ${error}`})
+    }
 }
-export { getTodo }

@@ -22,12 +22,12 @@ export async function connect ()
     try
     {
         const connect = await mongoose.connect(url);
-         client.db("todo_App");
+        // client.db("todo_App");
 
         connect.model("Todo", todoSchema)
         connect.model("User", UserSchema)
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
-
+        console.log("  You successfully connected to MongoDB!");
+        
     } catch (error)
     {
         console.error("failed to connect with mongodb", error)
