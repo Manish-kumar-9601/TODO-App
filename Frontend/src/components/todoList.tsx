@@ -6,13 +6,13 @@ import TodoEditInput from './todoEditInput';
 export const TodoList = ({ todos, setChange }) => {
     const [editingTodoId, setEditingTodoId] = useState(null)
     const [isEditing, setIsEditing] = useState(false)
-
+        console.log("todo",todos);
     return (
         <ul className="space-y-4">
             {todos.map((todo, index) => (
                 <li key={index} className="flex flex-col bg-gray-200 p-2 rounded-md shadow-sm text-black">
                     {editingTodoId === todo._id ? (
-                        <TodoEditInput currentTodo={todo.todo} currentTodoId={todo._id} currentTodoTitle={todo.title}  />
+                        <TodoEditInput currentTodo={todo.todo} currentTodoId={todo._id} currentTodoTitle={todo.todoTitle}  />
                     ) : (
                         <>
                             <h3 className="font-bold">{todo.todoTitle}</h3>

@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 export default function TodoEditInput({currentTodo,currentTodoId,currentTodoTitle}) {
     const [todoTitle,setTodoTitle]=useState(currentTodoTitle)
     const [todo,setTodo]=useState(currentTodo)
-    
+    console.log("newtitle",todoTitle);
+    console.log("newtodo",todo);
     const editTodoHandler = async () => {
         console.log("edit");
 
@@ -26,7 +27,7 @@ export default function TodoEditInput({currentTodo,currentTodoId,currentTodoTitl
         }
     }
   return (
-    <form method='post' onSubmit={editTodoHandler} className="mb-4">
+    <form  onSubmit={editTodoHandler} className="mb-4">
     <input
         type="text"
         value={todoTitle}
